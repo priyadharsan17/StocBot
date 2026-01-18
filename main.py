@@ -5,6 +5,7 @@ from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtCore import QUrl
 
 from Backend.app_controller import AppController
+from Backend.ScreenLoader import ScreenLoader
 
 
 def main():
@@ -14,6 +15,9 @@ def main():
     # Create and register backend controller
     controller = AppController()
     engine.rootContext().setContextProperty("appController", controller)
+    # Create and register screen loader backend
+    screen_loader = ScreenLoader()
+    engine.rootContext().setContextProperty("screenLoader", screen_loader)
     
     # Load main QML file
     qml_file = Path(__file__).parent / "main.qml"

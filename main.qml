@@ -20,28 +20,12 @@ ApplicationWindow {
         }
     }
     
-    // Main content loader
-    StackView {
-        id: stackView
+    // Main content loader (uses backend `screenLoader` to control `Loader` source)
+    Loader {
+        id: mainLoader
         anchors.fill: parent
-        initialItem: homeScreenComponent
+        source: screenLoader.source
     }
     
-    Component {
-        id: homeScreenComponent
-        HomeScreen {
-            onNavigateToStockSelector: {
-                console.log("Navigate to Stock Selector")
-                // stackView.push(stockSelectorComponent)
-            }
-            onNavigateToChart: {
-                console.log("Navigate to Chart")
-                // stackView.push(chartComponent)
-            }
-            onNavigateToAnalysis: {
-                console.log("Navigate to Analysis")
-                // stackView.push(analysisComponent)
-            }
-        }
-    }
+    // Home screen is loaded via `screenLoader.source` by default.
 }

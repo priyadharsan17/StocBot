@@ -7,9 +7,7 @@ import "../Components"
 Item {
     id: homeScreen
     
-    signal navigateToStockSelector()
-    signal navigateToChart()
-    signal navigateToAnalysis()
+    // navigation handled via `screenLoader.loadScreen(name)`
     
     // Content container
     ColumnLayout {
@@ -74,7 +72,7 @@ Item {
                 label: "Stock Selector"
                 gradientColor1: "#667eea"
                 gradientColor2: "#764ba2"
-                onClicked: homeScreen.navigateToStockSelector()
+                onClicked: screenLoader.loadScreen("stockSelector")
             }
             
             // Chart Button
@@ -83,7 +81,7 @@ Item {
                 label: "Chart View"
                 gradientColor1: "#f093fb"
                 gradientColor2: "#f5576c"
-                onClicked: homeScreen.navigateToChart()
+                onClicked: screenLoader.loadScreen("chart")
             }
             
             // Analysis Button
@@ -92,7 +90,7 @@ Item {
                 label: "Analysis"
                 gradientColor1: "#4facfe"
                 gradientColor2: "#00f2fe"
-                onClicked: homeScreen.navigateToAnalysis()
+                onClicked: screenLoader.loadScreen("analysis")
             }
         }
         
